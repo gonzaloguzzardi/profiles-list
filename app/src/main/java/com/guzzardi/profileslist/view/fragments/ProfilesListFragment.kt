@@ -37,6 +37,7 @@ class ProfilesListFragment : Fragment() {
         setActionBarTitle(getString(R.string.fragment_profiles_list_title))
         listenToUiUpdates()
         bindCreateUserButton()
+        listenToUiUpdates()
         userProfilesViewModel.fetchProfiles()
     }
 
@@ -47,7 +48,7 @@ class ProfilesListFragment : Fragment() {
 
     private fun listenToUiUpdates() {
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 userProfilesViewModel.userProfilesState.collect { userProfileState ->
                     renderUiState(userProfileState)
                 }

@@ -10,7 +10,7 @@ class ProfilesRecyclerViewTest: RobolectricTest() {
     @Test
     fun `setData calls submit list on ProfilesAdapter`() {
         val recyclerView = ProfilesRecyclerView(context)
-        val testData = listOf(UserProfile("", "", null))
+        val testData = listOf(UserProfile("", "", "", null))
 
         recyclerView.setData(testData)
 

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.guzzardi.profileslist.R
 import com.guzzardi.profileslist.databinding.FragmentCreateProfileBinding
 import com.guzzardi.profileslist.view.utils.setActionBarTitle
@@ -28,6 +29,7 @@ class CreateProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setActionBarTitle(getString(R.string.fragment_create_profile_title))
+        bindCreateButton()
     }
 
     override fun onDestroyView() {
@@ -35,5 +37,19 @@ class CreateProfileFragment : Fragment() {
         binding = null
     }
 
-    fun
+    private fun bindCreateButton() {
+        binding?.run {
+            profileCreateButton.setOnClickListener {
+                if (profileFormView.validateForm()) {
+                    userProfilesViewModel.createUserProfile(
+                        profileFormView.givenName,
+                        profileFormView.lastName,
+                        profileFormView.email
+                    )
+                    findNavController().popBackStack()
+                }
+
+            }
+        }
+    }
 }

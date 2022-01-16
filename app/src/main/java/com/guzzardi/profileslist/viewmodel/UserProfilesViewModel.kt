@@ -34,4 +34,10 @@ class UserProfilesViewModel(val ioDispatcher: CoroutineDispatcher = Dispatchers.
         newList.add(newUserProfile)
         userProfilesState.value = UserProfilesState(newList)
     }
+
+    fun removeUserProfile(userProfile: UserProfile) {
+        val newList = userProfilesState.value.userProfiles.toMutableList()
+        newList.remove(userProfile)
+        userProfilesState.value = UserProfilesState(newList)
+    }
 }

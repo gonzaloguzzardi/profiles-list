@@ -13,7 +13,7 @@ class ProfilesAdapterTest : RobolectricTest() {
         val adapter = ProfilesAdapter()
         val viewHolder = adapter.onCreateViewHolder(FrameLayout(context), 0)
 
-        val data = UserProfile(GIVEN_NAME, FAMILY_NAME, null)
+        val data = UserProfile(GIVEN_NAME, FAMILY_NAME, "", null)
 
         (viewHolder as ProfileViewHolder).bind(data)
 

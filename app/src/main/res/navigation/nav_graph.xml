@@ -7,6 +7,16 @@
     <fragment
         android:id="@+id/user_profiles"
         android:name="com.guzzardi.profileslist.view.fragments.ProfilesListFragment"
-        android:label="search_word_fragment"
-        tools:layout="@layout/fragment_profiles_list" />
+        android:label="@string/fragment_profiles_list_title"
+        tools:layout="@layout/fragment_profiles_list">
+        <action
+            android:id="@+id/action_user_profiles_to_create_profile"
+            app:destination="@id/create_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/create_profile"
+        android:name="com.guzzardi.profileslist.view.fragments.CreateProfileFragment"
+        android:label="@string/fragment_create_profile_title"
+        tools:layout="@layout/fragment_create_profile" />
 </navigation>

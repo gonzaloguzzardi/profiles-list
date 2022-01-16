@@ -13,7 +13,7 @@ class ProfileViewHolderTest : RobolectricTest() {
     fun `bind correctly displays definition text value`() {
         val viewHolder = createViewHolder()
 
-        viewHolder.bind(UserProfile(GIVEN_NAME, FAMILY_NAME, null))
+        viewHolder.bind(UserProfile(GIVEN_NAME, FAMILY_NAME, "", null))
 
         Assert.assertEquals(View.VISIBLE, viewHolder.fullName.visibility)
         Assert.assertEquals("$GIVEN_NAME $FAMILY_NAME", viewHolder.fullName.text)

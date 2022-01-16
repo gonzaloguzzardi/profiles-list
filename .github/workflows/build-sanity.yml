@@ -32,7 +32,7 @@ jobs:
 
       - name: Run Lint
         run: |
-          ./gradlew check
+          ./gradlew detekt
 
       - name: Build Project
         run: ./gradlew assemble

@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">profiles-list</string>
-    <string name="main_activity_label">All profiles</string>
+    <string name="fragment_profiles_list_title">All profiles</string>
+    <string name="fragment_create_profile_title">Create user profile</string>
 
+    <string name="profiles_list_floating_button_content_description">Create user profile</string>
     <string name="profile_view_holder_full_name_template">%s %s</string>
+
+    <string name="profile_given_name_hint">First name</string>
+    <string name="profile_given_name_error_message">First name cannot be empty</string>
+    <string name="profile_family_name_hint">Last name</string>
+    <string name="profile_family_name_error_message">Last name cannot be empty</string>
+    <string name="profile_email_name_hint">Email</string>
+    <string name="profile_email_name_error_message">Email name cannot be empty</string>
+    <string name="profile_button_create">Create</string>
+
 </resources>

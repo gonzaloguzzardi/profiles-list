@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
-class UserProfilesViewModel(val ioDispatcher: CoroutineDispatcher = Dispatchers.IO) : ViewModel() {
+class UserProfilesViewModel(private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO) : ViewModel() {
 
     val userProfilesState: MutableStateFlow<UserProfilesState> =
         MutableStateFlow(UserProfilesState(emptyList()))

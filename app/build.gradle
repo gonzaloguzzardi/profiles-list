@@ -71,8 +71,9 @@ dependencies {
     testImplementation "junit:junit:$jUnitVersion"
     testImplementation "androidx.test:core:$testCoreVersion"
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
-    testImplementation("org.mockito:mockito-inline:$mockitoVersion")
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
     testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesTestVersion"
 
     androidTestImplementation "androidx.test.ext:junit:$testExtJUnitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"

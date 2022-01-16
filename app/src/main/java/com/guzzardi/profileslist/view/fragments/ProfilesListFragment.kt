@@ -1,5 +1,8 @@
 package com.guzzardi.profileslist.view.fragments
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,12 +16,15 @@ import androidx.navigation.fragment.findNavController
 import com.guzzardi.profileslist.R
 import com.guzzardi.profileslist.databinding.FragmentProfilesListBinding
 import com.guzzardi.profileslist.model.UserProfile
+import com.guzzardi.profileslist.view.utils.CAMERA_PERMISSION_REQUEST_CODE
+import com.guzzardi.profileslist.view.utils.CHOOSE_FROM_GALLERY_REQUEST_CODE
 import com.guzzardi.profileslist.view.utils.setActionBarTitle
 import com.guzzardi.profileslist.view.views.profileslist.ProfilesRecyclerView
 import com.guzzardi.profileslist.viewmodel.UserProfilesState
 import com.guzzardi.profileslist.viewmodel.UserProfilesViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+
 
 class ProfilesListFragment : Fragment(), ProfilesRecyclerView.OnProfileRemovedListener {
 

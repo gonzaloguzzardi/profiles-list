@@ -1,8 +1,10 @@
 package com.guzzardi.profileslist.view.views
 
 import android.content.Context
+import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.guzzardi.profileslist.R
 import com.guzzardi.profileslist.databinding.UserProfileFormViewBinding
@@ -21,11 +23,24 @@ class UserProfileFormView(context: Context, attrs: AttributeSet? = null): Constr
     val email: String
         get() = binding.emailNameInputText.text.toString()
 
+    val profileImage: ImageView
+        get() = binding.profileFormImage
+
     fun validateForm(): Boolean {
         val validGivenName = validateGivenName()
         val validLastName = validateFamilyName()
         val validEmail = validateEmail()
         return validGivenName && validLastName && validEmail
+    }
+
+    fun setTextFields(givenName: String, familyName: String, email: String) {
+        binding.givenNameInputText.setText(givenName)
+        binding.familyNameInputText.setText(familyName)
+        binding.emailNameInputText.setText(email)
+    }
+
+    fun setImage(imageUri: Uri?) {
+        binding.profileFormImage
     }
 
     private fun validateGivenName(): Boolean {

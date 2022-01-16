@@ -80,15 +80,15 @@ class UserProfilesViewModelTest : RobolectricTest() {
 
         val newName = "Test name"
         val newFamily = "Test family name"
-        val newEmail = "Test email"
+        val newBio = "Test bio"
         val imageUri = Uri.parse("Test Uri")
 
-        viewModel.editUserProfile(1, newName, newFamily, newEmail, imageUri)
+        viewModel.editUserProfile(1, newName, newFamily, newBio, imageUri)
 
         val editedProfile = viewModel.getUserProfileAt(1)
         Assert.assertEquals(editedProfile?.givenName, newName)
         Assert.assertEquals(editedProfile?.familyName, newFamily)
-        Assert.assertEquals(editedProfile?.email, newEmail)
+        Assert.assertEquals(editedProfile?.bio, newBio)
         Assert.assertEquals(editedProfile?.profileImageUri, imageUri)
     }
 

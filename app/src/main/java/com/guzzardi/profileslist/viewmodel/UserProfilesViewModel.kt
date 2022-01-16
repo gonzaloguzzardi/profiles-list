@@ -33,17 +33,17 @@ class UserProfilesViewModel(private val ioDispatcher: CoroutineDispatcher = Disp
     fun getUserProfileAt(position: Int): UserProfile? =
         userProfilesState.value.userProfiles.getOrNull(position)
 
-    fun createUserProfile(givenName: String, lastName: String, email: String, imageUri: Uri?) {
-        val newUserProfile = UserProfile(givenName, lastName, email, imageUri)
+    fun createUserProfile(givenName: String, lastName: String, bio: String, imageUri: Uri?) {
+        val newUserProfile = UserProfile(givenName, lastName, bio, imageUri)
         val newList = userProfilesState.value.userProfiles.toMutableList()
         newList.add(newUserProfile)
         userProfilesState.value = UserProfilesState(newList)
     }
 
-    fun editUserProfile(index: Int, givenName: String, lastName: String, email: String, imageUri: Uri?) {
+    fun editUserProfile(index: Int, givenName: String, lastName: String, bio: String, imageUri: Uri?) {
         if (index > userProfilesState.value.userProfiles.size) return
 
-        val newUserProfile = UserProfile(givenName, lastName, email, imageUri)
+        val newUserProfile = UserProfile(givenName, lastName, bio, imageUri)
         val newList = userProfilesState.value.userProfiles.toMutableList()
         newList[index] = newUserProfile
         userProfilesState.value = UserProfilesState(newList)

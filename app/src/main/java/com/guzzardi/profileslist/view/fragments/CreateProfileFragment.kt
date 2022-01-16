@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
 import com.guzzardi.profileslist.R
 import com.guzzardi.profileslist.databinding.FragmentCreateProfileBinding
 import com.guzzardi.profileslist.view.utils.CHOOSE_FROM_GALLERY_REQUEST_CODE
@@ -71,7 +70,7 @@ class CreateProfileFragment : Fragment() {
                     userProfilesViewModel.createUserProfile(
                         profileFormView.givenName,
                         profileFormView.lastName,
-                        profileFormView.email,
+                        profileFormView.bio,
                         userProfilesViewModel.selectedImage
                     )
                     findNavController().popBackStack()

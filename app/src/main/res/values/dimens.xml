@@ -11,5 +11,6 @@
     <dimen name="profile_view_holder_image_size">48dp</dimen>
 
     <dimen name="profile_image_size">144dp</dimen>
+    <dimen name="profile_bio_text_area_min_height">96dp</dimen>
     <dimen name="profile_button_height">64dp</dimen>
 </resources>

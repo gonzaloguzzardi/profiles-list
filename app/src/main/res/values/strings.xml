@@ -11,8 +11,8 @@
     <string name="profile_given_name_error_message">First name cannot be empty</string>
     <string name="profile_family_name_hint">Last name</string>
     <string name="profile_family_name_error_message">Last name cannot be empty</string>
-    <string name="profile_email_name_hint">Email</string>
-    <string name="profile_email_name_error_message">Email name cannot be empty</string>
+    <string name="profile_bio_name_hint">Bio</string>
+    <string name="profile_bio_error_message">Bio cannot be empty</string>
     <string name="profile_button_create">Create</string>
     <string name="profile_button_save_changes">Save changes</string>
 

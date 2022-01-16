@@ -11,10 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.bumptech.glide.Glide
 import com.guzzardi.profileslist.R
 import com.guzzardi.profileslist.databinding.FragmentEditProfileBinding
-import com.guzzardi.profileslist.model.UserProfile
 import com.guzzardi.profileslist.view.utils.CHOOSE_FROM_GALLERY_REQUEST_CODE
 import com.guzzardi.profileslist.view.utils.TAKE_PHOTO_REQUEST_CODE
 import com.guzzardi.profileslist.view.utils.getCameraPhotoImageUri
@@ -71,7 +69,7 @@ class EditProfileFragment : Fragment() {
     private fun loadUserProfileData() {
         userProfilesViewModel.getUserProfileAt(args.profileIndex)?.let { userProfile ->
             binding?.run {
-                profileFormView.setTextFields(userProfile.givenName, userProfile.familyName, userProfile.email)
+                profileFormView.setTextFields(userProfile.givenName, userProfile.familyName, userProfile.bio)
                 profileFormView.setImage(userProfile.profileImageUri)
             }
         }
@@ -85,7 +83,7 @@ class EditProfileFragment : Fragment() {
                         args.profileIndex,
                         profileFormView.givenName,
                         profileFormView.lastName,
-                        profileFormView.email,
+                        profileFormView.bio,
                         userProfilesViewModel.selectedImage
                     )
                     findNavController().popBackStack()

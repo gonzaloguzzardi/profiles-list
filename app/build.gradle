@@ -50,15 +50,28 @@ android {
 }
 
 dependencies {
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+
     implementation "androidx.core:core-ktx:$coreKtxVersion"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
-    implementation "com.google.android.material:material:$materialVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
 
     testImplementation "junit:junit:$jUnitVersion"
+    testImplementation "androidx.test:core:$testCoreVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation("org.mockito:mockito-inline:$mockitoVersion")
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
 
     androidTestImplementation "androidx.test.ext:junit:$testExtJUnitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"

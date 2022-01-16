@@ -29,7 +29,7 @@
             android:layout_height="@dimen/profile_button_height"
             android:layout_marginVertical="@dimen/space_large"
             android:layout_marginBottom="@dimen/space_large"
-            android:text="@string/profile_button_create"
+            android:text="@string/profile_button_save_changes"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

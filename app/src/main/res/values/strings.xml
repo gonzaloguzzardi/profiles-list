@@ -2,6 +2,7 @@
     <string name="app_name">profiles-list</string>
     <string name="fragment_profiles_list_title">All profiles</string>
     <string name="fragment_create_profile_title">Create user profile</string>
+    <string name="fragment_edit_profile_title">Edit profile</string>
 
     <string name="profiles_list_floating_button_content_description">Create user profile</string>
     <string name="profile_view_holder_full_name_template">%s %s</string>
@@ -13,5 +14,11 @@
     <string name="profile_email_name_hint">Email</string>
     <string name="profile_email_name_error_message">Email name cannot be empty</string>
     <string name="profile_button_create">Create</string>
+    <string name="profile_button_save_changes">Save changes</string>
+
+    <string name="photo_picker_title">Choose a profile picture</string>
+    <string name="photo_picker_take_photo">Take photo</string>
+    <string name="photo_picker_take_choose_from_gallery">Choose from Gallery</string>
+    <string name="photo_picker_take_choose_cancel">Cancel</string>
 
 </resources>

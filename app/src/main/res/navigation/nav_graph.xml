@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_user_profiles_to_create_profile"
             app:destination="@id/create_profile" />
+        <action
+            android:id="@+id/action_user_profiles_to_edit_profile"
+            app:destination="@id/edit_profile" />
     </fragment>
 
     <fragment
@@ -19,4 +22,15 @@
         android:name="com.guzzardi.profileslist.view.fragments.CreateProfileFragment"
         android:label="@string/fragment_create_profile_title"
         tools:layout="@layout/fragment_create_profile" />
+
+    <fragment
+        android:id="@+id/edit_profile"
+        android:name="com.guzzardi.profileslist.view.fragments.EditProfileFragment"
+        android:label="@string/fragment_edit_profile_title"
+        tools:layout="@layout/fragment_edit_profile">
+        <argument
+            android:name="profile_index"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

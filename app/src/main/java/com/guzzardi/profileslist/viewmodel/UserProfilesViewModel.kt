@@ -1,5 +1,6 @@
 package com.guzzardi.profileslist.viewmodel
 
+import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.guzzardi.profileslist.model.UserProfile
@@ -12,6 +13,7 @@ class UserProfilesViewModel(val ioDispatcher: CoroutineDispatcher = Dispatchers.
 
     val userProfilesState: MutableStateFlow<UserProfilesState> =
         MutableStateFlow(UserProfilesState(emptyList()))
+    var selectedImage: Uri? = null
 
     fun fetchProfiles() {
         if (userProfilesState.value.userProfiles.isNotEmpty()) return
@@ -28,10 +30,22 @@ class UserProfilesViewModel(val ioDispatcher: CoroutineDispatcher = Dispatchers.
         }
     }
 
-    fun createUserProfile(givenName: String, lastName: String, email: String) {
-        val newUserProfile = UserProfile(givenName, lastName, email, null)
+    fun getUserProfileAt(position: Int): UserProfile? =
+        userProfilesState.value.userProfiles.getOrNull(position)
+
+    fun createUserProfile(givenName: String, lastName: String, email: String, imageUri: Uri?) {
+        val newUserProfile = UserProfile(givenName, lastName, email, imageUri)
         val newList = userProfilesState.value.userProfiles.toMutableList()
         newList.add(newUserProfile)
+        userProfilesState.value = UserProfilesState(newList)
+    }
+
+    fun editUserProfile(index: Int, givenName: String, lastName: String, email: String, imageUri: Uri?) {
+        if (index > userProfilesState.value.userProfiles.size) return
+
+        val newUserProfile = UserProfile(givenName, lastName, email, imageUri)
+        val newList = userProfilesState.value.userProfiles.toMutableList()
+        newList[index] = newUserProfile
         userProfilesState.value = UserProfilesState(newList)
     }
 

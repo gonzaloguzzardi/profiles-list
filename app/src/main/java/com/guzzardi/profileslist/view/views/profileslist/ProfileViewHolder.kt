@@ -1,6 +1,7 @@
 package com.guzzardi.profileslist.view.views.profileslist
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -9,22 +10,13 @@ import com.guzzardi.profileslist.databinding.ProfileViewHolderBinding
 import com.guzzardi.profileslist.model.ImageData
 import com.guzzardi.profileslist.model.UserProfile
 
-class ProfileViewHolder(binding: ProfileViewHolderBinding) :
+class ProfileViewHolder(val binding: ProfileViewHolderBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    companion object {
-        fun create(parent: ViewGroup): RecyclerView.ViewHolder {
-            val binding = ProfileViewHolderBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
-            return ProfileViewHolder(binding)
-        }
-    }
-
+    val foregroundView = binding.foregroundView
     val profileImage = binding.profileImage
     val fullName = binding.profileFullName
+
 
     private val fullNameStringTemplate =
         binding.root.context.getString(R.string.profile_view_holder_full_name_template)
@@ -40,6 +32,17 @@ class ProfileViewHolder(binding: ProfileViewHolderBinding) :
                 .load(R.drawable.ic_launcher_background)
                 .centerCrop()
                 .into(profileImage);
+        }
+    }
+
+    companion object {
+        fun create(parent: ViewGroup): RecyclerView.ViewHolder {
+            val binding = ProfileViewHolderBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+            return ProfileViewHolder(binding)
         }
     }
 }

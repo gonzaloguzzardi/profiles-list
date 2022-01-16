@@ -12,13 +12,15 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.guzzardi.profileslist.R
 import com.guzzardi.profileslist.databinding.FragmentProfilesListBinding
+import com.guzzardi.profileslist.model.UserProfile
 import com.guzzardi.profileslist.view.utils.setActionBarTitle
+import com.guzzardi.profileslist.view.views.profileslist.ProfilesRecyclerView
 import com.guzzardi.profileslist.viewmodel.UserProfilesState
 import com.guzzardi.profileslist.viewmodel.UserProfilesViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class ProfilesListFragment : Fragment() {
+class ProfilesListFragment : Fragment(), ProfilesRecyclerView.OnProfileRemovedListener {
 
     private val userProfilesViewModel: UserProfilesViewModel by activityViewModels()
 
@@ -46,6 +48,10 @@ class ProfilesListFragment : Fragment() {
         binding = null
     }
 
+    override fun onRemoved(userProfile: UserProfile) {
+        userProfilesViewModel.removeUserProfile(userProfile)
+    }
+
     private fun listenToUiUpdates() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
@@ -67,7 +73,7 @@ class ProfilesListFragment : Fragment() {
 
     private fun renderUiState(userProfiles: UserProfilesState) {
         binding?.run {
-            profilesRecyclerView.setData(userProfiles.userProfiles)
+            profilesRecyclerView.setData(userProfiles.userProfiles, this@ProfilesListFragment)
         }
     }
 }

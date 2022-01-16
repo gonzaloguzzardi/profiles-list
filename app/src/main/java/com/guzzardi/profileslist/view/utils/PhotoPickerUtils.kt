@@ -9,13 +9,15 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Environment
 import android.provider.MediaStore
-import android.util.Log
 import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.guzzardi.profileslist.R
 import java.io.File
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
 const val TAKE_PHOTO_REQUEST_CODE = 101
 const val CHOOSE_FROM_GALLERY_REQUEST_CODE = 102
@@ -45,6 +47,9 @@ fun Fragment.openPhotoPickerDialog() {
                     )
                 } else {
                     val takePicture = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                    getCameraPhotoImageUri(activity)?.let { uri ->
+                        takePicture.putExtra(MediaStore.EXTRA_OUTPUT, uri)
+                    }
                     startActivityForResult(takePicture, TAKE_PHOTO_REQUEST_CODE)
                 }
             }
@@ -62,4 +67,33 @@ fun Fragment.openPhotoPickerDialog() {
     }
     builder.show()
 }
+
+@Suppress("ReturnCount")
+fun getCameraPhotoImageUri(context: Context?): Uri? {
+    if (context == null) return null
+
+    val photoFile: File = try {
+        createImageFile(context)
+    } catch (ex: IOException) {
+        null
+    } ?: return null
+    return FileProvider.getUriForFile(
+            context,
+            "com.guzzardi.profileslist.fileprovider",
+            photoFile
+        )
+}
+
+@Throws(IOException::class)
+private fun createImageFile(context: Context): File? {
+    // Create an image file name
+    val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.ROOT).format(Date())
+    val storageDir: File = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES) ?: return null
+    return File.createTempFile(
+        "JPEG_${timeStamp}_", /* prefix */
+        ".jpg", /* suffix */
+        storageDir /* directory */
+    )
+}
+
 

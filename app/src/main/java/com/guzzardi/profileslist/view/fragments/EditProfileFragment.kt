@@ -17,6 +17,7 @@ import com.guzzardi.profileslist.databinding.FragmentEditProfileBinding
 import com.guzzardi.profileslist.model.UserProfile
 import com.guzzardi.profileslist.view.utils.CHOOSE_FROM_GALLERY_REQUEST_CODE
 import com.guzzardi.profileslist.view.utils.TAKE_PHOTO_REQUEST_CODE
+import com.guzzardi.profileslist.view.utils.getCameraPhotoImageUri
 import com.guzzardi.profileslist.view.utils.openPhotoPickerDialog
 import com.guzzardi.profileslist.view.utils.setActionBarTitle
 import com.guzzardi.profileslist.view.utils.setImageUri
@@ -55,7 +56,7 @@ class EditProfileFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             TAKE_PHOTO_REQUEST_CODE -> if (resultCode == Activity.RESULT_OK) {
-                val selectedImage: Uri? = data?.data
+                val selectedImage: Uri? = data?.data ?: getCameraPhotoImageUri(context)
                 userProfilesViewModel.selectedImage = selectedImage
                 updateProfileImage(selectedImage)
             }

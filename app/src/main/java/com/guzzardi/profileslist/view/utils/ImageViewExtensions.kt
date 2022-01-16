@@ -10,6 +10,7 @@ fun ImageView.setImageUri(context: Context, uri: Uri?) {
     Glide.with(context)
         .load(uri)
         .placeholder(R.mipmap.ic_launcher)
+        .centerCrop()
         .error(R.mipmap.ic_launcher)
         .into(this)
 }

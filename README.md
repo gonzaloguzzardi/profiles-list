@@ -1,5 +1,5 @@
 # MVVM Profiles list
-App displaying a list of profiles with the ability to add, remove and edit one
+App displaying a list of profiles with the ability to add, remove and edit each one
 
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 [![Awesome Kotlin Badge](https://kotlin.link/awesome-kotlin.svg)](https://github.com/KotlinBy/awesome-kotlin)

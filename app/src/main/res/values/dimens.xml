@@ -4,7 +4,12 @@
 
     <dimen name="space_small">8dp</dimen>
     <dimen name="space_medium">16dp</dimen>
+    <dimen name="space_large">24dp</dimen>
+    <dimen name="space_xlarge">36dp</dimen>
 
     <dimen name="profile_view_holder_card_elevation">4dp</dimen>
     <dimen name="profile_view_holder_image_size">48dp</dimen>
+
+    <dimen name="profile_image_size">144dp</dimen>
+    <dimen name="profile_button_height">64dp</dimen>
 </resources>

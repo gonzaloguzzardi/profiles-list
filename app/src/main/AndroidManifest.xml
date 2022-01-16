@@ -11,9 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Profileslist">
-        <activity
-            android:name="com.guzzardi.profileslist.view.activities.ProfilesListActivity"
-            android:label="@string/main_activity_label">
+        <activity android:name="com.guzzardi.profileslist.view.activities.ProfilesListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

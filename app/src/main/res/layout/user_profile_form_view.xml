@@ -73,7 +73,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email_name_input_layout"
+        android:id="@+id/bio_input_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,12 +83,12 @@
         app:layout_constraintTop_toBottomOf="@+id/family_name_input_layout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email_name_input_text"
+            android:id="@+id/bio_input_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:inputType="textEmailAddress"
-            android:hint="@string/profile_email_name_hint" />
+            android:minHeight="@dimen/profile_bio_text_area_min_height"
+            android:inputType="textCapSentences"
+            android:hint="@string/profile_bio_name_hint" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -8,6 +8,7 @@ import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.guzzardi.profileslist.R
 import com.guzzardi.profileslist.databinding.UserProfileFormViewBinding
+import com.guzzardi.profileslist.view.utils.setImageUri
 
 class UserProfileFormView(context: Context, attrs: AttributeSet? = null): ConstraintLayout(context, attrs) {
 
@@ -20,8 +21,8 @@ class UserProfileFormView(context: Context, attrs: AttributeSet? = null): Constr
     val lastName: String
         get() = binding.familyNameInputText.text.toString()
 
-    val email: String
-        get() = binding.emailNameInputText.text.toString()
+    val bio: String
+        get() = binding.bioInputText.text.toString()
 
     val profileImage: ImageView
         get() = binding.profileFormImage
@@ -29,18 +30,18 @@ class UserProfileFormView(context: Context, attrs: AttributeSet? = null): Constr
     fun validateForm(): Boolean {
         val validGivenName = validateGivenName()
         val validLastName = validateFamilyName()
-        val validEmail = validateEmail()
-        return validGivenName && validLastName && validEmail
+        val validBio = validateBio()
+        return validGivenName && validLastName && validBio
     }
 
-    fun setTextFields(givenName: String, familyName: String, email: String) {
+    fun setTextFields(givenName: String, familyName: String, bio: String) {
         binding.givenNameInputText.setText(givenName)
         binding.familyNameInputText.setText(familyName)
-        binding.emailNameInputText.setText(email)
+        binding.bioInputText.setText(bio)
     }
 
     fun setImage(imageUri: Uri?) {
-        binding.profileFormImage
+        binding.profileFormImage.setImageUri(context, imageUri)
     }
 
     private fun validateGivenName(): Boolean {
@@ -62,12 +63,13 @@ class UserProfileFormView(context: Context, attrs: AttributeSet? = null): Constr
             true
         }
     }
-    private fun validateEmail(): Boolean {
-        return if (binding.emailNameInputText.text.toString().isBlank()) {
-            binding.emailNameInputLayout.error = context.getString(R.string.profile_email_name_error_message)
+
+    private fun validateBio(): Boolean {
+        return if (binding.bioInputText.text.toString().isBlank()) {
+            binding.bioInputLayout.error = context.getString(R.string.profile_bio_error_message)
             false
         } else {
-            binding.emailNameInputLayout.error = null
+            binding.bioInputLayout.error = null
             true
         }
     }
